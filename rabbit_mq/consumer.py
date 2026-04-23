@@ -4,6 +4,7 @@ import logging
 from typing import Optional
 
 from ocr.recognition import start_recognition
+from ocr.recognition2 import start_recognition2
 
 # Настройка логирования
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -64,7 +65,12 @@ class RabbitMQConsumer:
             
             # Здесь можно добавить свою логику обработки сообщения
             # Например, сохранение в БД, вызов API и т.д.
-            start_recognition()
+            # start_recognition2({
+            #     image: str, 
+            #     model: str, 
+            #     top_k: int, 
+            #     useCpu: bool
+            # })
             
             # Подтверждаем обработку сообщения
             ch.basic_ack(delivery_tag=method.delivery_tag)
