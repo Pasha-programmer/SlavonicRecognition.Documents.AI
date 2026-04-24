@@ -4,7 +4,6 @@ import logging
 from typing import Optional
 
 from ocr.recognition import start_recognition
-from ocr.recognition2 import start_recognition2
 
 # Настройка логирования
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -13,7 +12,7 @@ logger = logging.getLogger(__name__)
 class RabbitMQConsumer:
     def __init__(self):
         self.host = "localhost"
-        self.port = 5672
+        self.port = 15672
         self.username = "admin"
         self.password = "admin123"
         self.virtual_host = "/"
@@ -65,7 +64,7 @@ class RabbitMQConsumer:
             
             # Здесь можно добавить свою логику обработки сообщения
             # Например, сохранение в БД, вызов API и т.д.
-            # start_recognition2({
+            # start_recognition({
             #     image: str, 
             #     model: str, 
             #     top_k: int, 
